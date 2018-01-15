@@ -34,7 +34,7 @@ class AddEvent extends Component {
         </div>
         <hr />
 
-        <div className="jumbotron" style={{ margin: "0 500px" }}>
+        <div className="jumbotron" style={{ margin: "0 250px" }}>
           <form onSubmit={this.handleSubmit}>
 
             <div className="form-group">
