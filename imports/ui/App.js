@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Events } from "../api/events";
 import AddEvent from './AddEvent';
 // we import withTracker and Events into our app file
 import { withTracker } from 'meteor/react-meteor-data';
