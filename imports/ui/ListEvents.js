@@ -8,6 +8,19 @@ const buttonStyle = {
 }
 
 class ListEvents extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+  handleEdit = () => {
+
+  }
+
+  handleDelete = (eventId) => {
+    Events.remove({_id: eventId});
+  }
+
   render() {
     return (
       <div>
@@ -20,8 +33,20 @@ class ListEvents extends Component {
               </div>
               <p className="mb-1">{event.description}</p>
               <div className="controls row">
-                <button className="btn btn-outline-danger col" style={buttonStyle}>Delete Event</button>
-                <button className="btn btn-outline-warning col" style={buttonStyle}>Edit Event</button>
+                <button
+                  className="btn btn-outline-warning col"
+                  style={buttonStyle}
+                  onClick={this.handleEdit}
+                >
+                  Edit Event
+                </button>
+                <button
+                  className="btn btn-outline-danger col"
+                  style={buttonStyle}
+                  onClick={() => this.handleDelete(event._id)}
+                >
+                  Delete Event
+                </button>
               </div>
             </div>
           </div>
