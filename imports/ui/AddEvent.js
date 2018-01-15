@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Events } from "../api/events";
 
 class AddEvent extends Component {
   constructor(props) {
@@ -22,8 +23,22 @@ class AddEvent extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+    const { title, description, date } = this.state;
+
     // TODO: Create backend Meteor methods to save created events
-    alert("Will be Saved in a little bit :)")
+    // alert("Will be Saved in a little bit :)")
+
+    Events.insert({
+      title,
+      description,
+      date
+    });
+
+    this.setState({
+      title: "",
+      description: "",
+      date: ""
+    })
   }
 
   render() {
@@ -34,7 +49,7 @@ class AddEvent extends Component {
         </div>
         <hr />
 
-        <div className="jumbotron" style={{ margin: "0 500px" }}>
+        <div className="jumbotron" style={{ margin: "0 250px" }}>
           <form onSubmit={this.handleSubmit}>
 
             <div className="form-group">
@@ -44,6 +59,7 @@ class AddEvent extends Component {
                 className="form-control"
                 placeholder="Enter event title"
                 name="title"
+                value={this.state.title}
                 onChange={this.handleChange}
               />
             </div>
@@ -55,6 +71,7 @@ class AddEvent extends Component {
                 className="form-control"
                 placeholder="Enter event description"
                 name="description"
+                value={this.state.description}
                 onChange={this.handleChange}
               />
             </div>
@@ -66,6 +83,7 @@ class AddEvent extends Component {
                 className="form-control"
                 placeholder="Enter date in the format mm.dd.yyyy"
                 name="date"
+                value={this.state.date}
                 onChange={this.handleChange}
               />
             </div>
