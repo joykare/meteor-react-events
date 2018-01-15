@@ -3,6 +3,7 @@ import AddEvent from './AddEvent';
 // we import withTracker and Events into our app file
 import { withTracker } from 'meteor/react-meteor-data';
 import { Events } from "../api/events";
+import ListEvents from "./ListEvents";
 
 // Create a new React Component `EventApp`
 class EventApp extends Component {
@@ -12,8 +13,9 @@ class EventApp extends Component {
         <AddEvent />
         {/*
           we have the pre tags to view contents of db just for verification
+          <pre>DB Stuff: {JSON.stringify(this.props, null, ' ')} </pre>
         */}
-        <pre>DB Stuff: {JSON.stringify(this.props, null, ' ')} </pre>
+        <ListEvents {...this.props} />
       </div>
     );
   }
